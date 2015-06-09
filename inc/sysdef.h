@@ -1,4 +1,4 @@
-#ifndef SYSDEF_H
+ï»¿#ifndef SYSDEF_H
 #define SYSDEF_H
 
 //////////////////////////////////////////////////////////////////////////
@@ -11,7 +11,7 @@
 #define MAX_EXTEND_FILE			99
 #define MAX_HEADS_PER_COLOR		8
 
-//Ã¿¸öÅçÍ·×î´óµÄ¶ÂµãÊı£¬³¬¹ı´ÎÊıÇëÇåÏ´ÅçÍ·»ò¸ü»»ÅçÍ·
+//æ¯ä¸ªå–·å¤´æœ€å¤§çš„å µç‚¹æ•°ï¼Œè¶…è¿‡æ¬¡æ•°è¯·æ¸…æ´—å–·å¤´æˆ–æ›´æ¢å–·å¤´
 #define MAX_JAMMED_DOT_COUNT	100
 #define NORMAL_DOT				1000
 #define JAMMED_DOT				1020
@@ -19,30 +19,30 @@
 
 //Macro define
 #define ALIGNUP(X, Y) (((X) + (Y) - 1)/(Y)*(Y))
-#define	ALIGN(X, Y)	((X)/(Y)*(Y))	//X°´Y¶ÔÆë
+#define	ALIGN(X, Y)	((X)/(Y)*(Y))	//XæŒ‰Yå¯¹é½
 #define MM_TO_DOT(X,DPI)  (int)((double)(X*DPI)/25.4)   
 #define DOT_TO_MM(X,DPI)  (int)(((double)X*25.4)/DPI)
 #define LIMIT(NUM, MINLIMIT, MAXLIMIT) (((NUM)<(MAXLIMIT))?(((NUM)>(MINLIMIT))?(NUM):(MINLIMIT)):(MAXLIMIT))
 //////////////////////////////////////////////////////////////////////////
 
-//ÏµÍ³Òì³£¶¨Òå
+//ç³»ç»Ÿå¼‚å¸¸å®šä¹‰
 typedef enum _IMAGEPROCESS_EXCEPTION
 {
 	PE_SUCCESS = 0,
-	PE_PROCESS_IMG_FAILED,		// Í¼Ïñ´¦ÀíÒì³£
-	PE_OPEN_PRINTFILE_FAILED,	// ´ò¿ªÎÄ¼şÊ§°Ü
-	PE_CREATE_DATABUFFER_FAILED,// ´´½¨Êı¾İ»º³åÇøÊ§°Ü
-	PE_OUT_OF_PRINT_RANGE,		// µ±Ç°ÈÎÎñ³¬³ö´òÓ¡·¶Î§
-	PE_WAIT_EVENT_OVERTIME,		// Ïß³ÌµÈ´ı³¬Ê±	
-	PE_WRITE_MEMORY_FAILED,		// Ğ´ÄÚ´æÊ§°Ü
-	PE_DOWNLOADTHREAD_TERMINATE_FAILED,// Ğ´ÄÚ´æÏß³ÌÖĞ¶Ï
-	PE_COLOR_OFFSET_OUTOF_RANGE,	// Æ«ÒÆÖµÔ½½ç
-	PE_LOADIMGDATATHREAD_TERMINATE_FAILED,// ¶ÁÈ¡Í¼ÏñÊı¾İÏß³ÌÖĞ¶Ï
-	PE_UNKOWN_RIP_FILE_TYPE,	// ²»Ã÷µÄRIPÎÄ¼şÀàĞÍ
-	PE_HASP_EXPIRED				// ¼ÓÃÜ¹·¹ıÆÚ
+	PE_PROCESS_IMG_FAILED,		// å›¾åƒå¤„ç†å¼‚å¸¸
+	PE_OPEN_PRINTFILE_FAILED,	// æ‰“å¼€æ–‡ä»¶å¤±è´¥
+	PE_CREATE_DATABUFFER_FAILED,// åˆ›å»ºæ•°æ®ç¼“å†²åŒºå¤±è´¥
+	PE_OUT_OF_PRINT_RANGE,		// å½“å‰ä»»åŠ¡è¶…å‡ºæ‰“å°èŒƒå›´
+	PE_WAIT_EVENT_OVERTIME,		// çº¿ç¨‹ç­‰å¾…è¶…æ—¶	
+	PE_WRITE_MEMORY_FAILED,		// å†™å†…å­˜å¤±è´¥
+	PE_DOWNLOADTHREAD_TERMINATE_FAILED,// å†™å†…å­˜çº¿ç¨‹ä¸­æ–­
+	PE_COLOR_OFFSET_OUTOF_RANGE,	// åç§»å€¼è¶Šç•Œ
+	PE_LOADIMGDATATHREAD_TERMINATE_FAILED,// è¯»å–å›¾åƒæ•°æ®çº¿ç¨‹ä¸­æ–­
+	PE_UNKOWN_RIP_FILE_TYPE,	// ä¸æ˜çš„RIPæ–‡ä»¶ç±»å‹
+	PE_HASP_EXPIRED				// åŠ å¯†ç‹—è¿‡æœŸ
 }IMAGEPROCESS_EXCEPTION, LIMAGEPROCESS_EXCEPTION;
 
-// »úÆ÷ÑÕÉ«
+// æœºå™¨é¢œè‰²
 enum MACH_COLORTYPE{
 	MC_4C = 0,
 	MC_4C_W,
@@ -66,10 +66,10 @@ enum MACH_HEADERTYPE{
 	HT_KM1024
 };
 
-// Í¬É«ÅçÍ·×éÅÅÁĞ·½Ê½
+// åŒè‰²å–·å¤´ç»„æ’åˆ—æ–¹å¼
 enum MACH_GROUPTYPE{
-	MG_VERTICAL = 0,   // ×İÏòÅÅÁĞ
-	MG_HORIZONTAL	   // ºáÏòÅÅÁĞ
+	MG_VERTICAL = 0,   // çºµå‘æ’åˆ—
+	MG_HORIZONTAL	   // æ¨ªå‘æ’åˆ—
 };
 
 enum BANK_TYPE{
@@ -82,35 +82,35 @@ enum WHITE_PRINT_POS{
 	WP_TOP = 0,
 	WP_BOTTOM,
 	WP_MIDDLE
-};//°×É«´òÓ¡Î»ÖÃ
+};//ç™½è‰²æ‰“å°ä½ç½®
 
 enum PRINT_DIR{
 	DIR_LEFT = 0,
 	DIR_RIGHT,
 	DIR_MAX
-};//XÏò´òÓ¡·½Ïò
+};//Xå‘æ‰“å°æ–¹å‘
 
 enum PRT_IMG_TYPE{
-	NORMAL_IMG,						// Õı³£Í¼
-	HEAD_STATE_IMAGE,				// ×´Ì¬Í¼
-	HEAD_MODIFY_IMAGE,				// µ÷ÕûÍ¼
-	HEAD_INSIDECOLUMN_IMAGE,		// ÄÚ²¿ÁĞÌ×É«Í¼
-	HEAD_GROUPOFFSET_IMAGE,			// ×éÌ×É«Í¼
-	HEAD_BIDIRECTIONAL_IMAGE,		// Íù·µ´òÓ¡Ì×É«Í¼
-	HEAD_CROSSCOLOR_BASECOLOR_IMAGE,// ÅçÍ·Ì×É«Í¼
-	HEAD_SETP_IMAGE					// ²½½øµ÷ÕûÍ¼
-};//´òÓ¡Í¼ÏñÀàĞÍ
+	NORMAL_IMG,						// æ­£å¸¸å›¾
+	HEAD_STATE_IMAGE,				// çŠ¶æ€å›¾
+	HEAD_MODIFY_IMAGE,				// è°ƒæ•´å›¾
+	HEAD_INSIDECOLUMN_IMAGE,		// å†…éƒ¨åˆ—å¥—è‰²å›¾
+	HEAD_GROUPOFFSET_IMAGE,			// ç»„å¥—è‰²å›¾
+	HEAD_BIDIRECTIONAL_IMAGE,		// å¾€è¿”æ‰“å°å¥—è‰²å›¾
+	HEAD_CROSSCOLOR_BASECOLOR_IMAGE,// å–·å¤´å¥—è‰²å›¾
+	HEAD_SETP_IMAGE					// æ­¥è¿›è°ƒæ•´å›¾
+};//æ‰“å°å›¾åƒç±»å‹
 
 enum DIR{
 	DIR_X = 0,
 	DIR_Y,
 	MAX_DIRS
-};//´òÓ¡·½Ïò
+};//æ‰“å°æ–¹å‘
 
 enum SUPERBLOCK_TYPE{
 	SUPERBLOCK_FILEDPI = 0,
 	SUPERBLOCK_PRINTDPI
-}; // ³¬¼¶³é¿ìÀàĞÍ
+}; // è¶…çº§æŠ½å¿«ç±»å‹
 
 enum COLOR{
 	COLOR_K = 0,
@@ -163,15 +163,15 @@ enum PASS_MODE{
 	ULTRA_99,
 	ULTRA_102,
 	MAX_PASS_MODES
-};//´òÓ¡PassÄ£Ê½
+};//æ‰“å°Passæ¨¡å¼
 
 enum PRINT_MODE{
 	MODE_NORMAL = 0,
 	MODE_MULTI,
 	MODE_REGION
-	//MODE_SINGLECOLOR,        // ·ÖÉ«´òÓ¡
-	//SEQUENCE_PRINT,          // Á¬Ğø´òÓ¡
-	//STEP_PRINT               // ²½½ø´òÓ¡
+	//MODE_SINGLECOLOR,        // åˆ†è‰²æ‰“å°
+	//SEQUENCE_PRINT,          // è¿ç»­æ‰“å°
+	//STEP_PRINT               // æ­¥è¿›æ‰“å°
 };
 
 enum NOIZE_UNIT_TYPE{
@@ -195,15 +195,15 @@ typedef struct __RIPFILEHEADINFO
 	long Signature;
 	long XDPI;
 	long YDPI;
-	long BytesPerLine;	//Ã¿ĞĞµÄ×Ö½ÚÊı
-	long Height;		//ĞĞÊı
-	long Width;			//Ã¿ĞĞµÄÏñËØÊı
+	long BytesPerLine;	//æ¯è¡Œçš„å­—èŠ‚æ•°
+	long Height;		//è¡Œæ•°
+	long Width;			//æ¯è¡Œçš„åƒç´ æ•°
 	long PaperWidth;
-	long Colors;		//ÑÕÉ«Êı¡£ripÎÄ¼şÊµ¼Ê¸ß¶È=Height¡Ácolors
+	long Colors;		//é¢œè‰²æ•°ã€‚ripæ–‡ä»¶å®é™…é«˜åº¦=HeightÃ—colors
 	long Reserved[4];
 }RIPFILEHEADINFO, *LPRIPFILEHEADINFO;
 
-//REGIN_INFO £¨µ¥Î»ÊÇmm£©
+//REGIN_INFO ï¼ˆå•ä½æ˜¯mmï¼‰
 typedef struct __REGIN_INFO
 {
 	float	Left;
@@ -212,10 +212,10 @@ typedef struct __REGIN_INFO
 	float	Length;
 }REGIN_INFO, *LPREGIN_INFO;
 
-//RANDOM_INFO£¨µ¥Î»ÊÇmm£©
+//RANDOM_INFOï¼ˆå•ä½æ˜¯mmï¼‰
 typedef struct __RANDOM_INFO
 {
-	bool    UseRandomRegion; // ÊÇ·ñÊ¹ÓÃËæ»ú¾ÖÓò´òÓ¡
+	bool    UseRandomRegion; // æ˜¯å¦ä½¿ç”¨éšæœºå±€åŸŸæ‰“å°
 	double	LeftRange;
 	double	TopRange;
 	double	ImageWidth;
@@ -225,57 +225,57 @@ typedef struct __RANDOM_INFO
 //MUTI_INFO	
 typedef struct __MUTI_INFO
 {
-	unsigned int	CopyCount[MAX_DIRS];		// ¿½±´Êı(Á½¸ö·½Ïò£¬Ğ¡ÓÚ1µÄÊ±ºòµ±1Ê¹ÓÃ)
-	float	Spacing[MAX_DIRS];		// ¼ä¾à£¨µ¥Î»ÊÇmm£©
+	unsigned int	CopyCount[MAX_DIRS];		// æ‹·è´æ•°(ä¸¤ä¸ªæ–¹å‘ï¼Œå°äº1çš„æ—¶å€™å½“1ä½¿ç”¨)
+	float	Spacing[MAX_DIRS];		// é—´è·ï¼ˆå•ä½æ˜¯mmï¼‰
 }MUTI_INFO, *LPMUTI_INFO;
 
 //COLORBAR_INFO
 typedef struct __COLORBAR_INFO
 {
-	unsigned int 	Width;				// É«Ìõ¿í£¨µ¥Î»:mm£©
-	unsigned int	DistanceFromImg;	// ÀëÍ¼ÏñµÄ¾àÀë£¨µ¥Î»:mm£©
-	bool			Fixed;				// ÊÇ·ñ¹Ì¶¨Î»ÖÃ
-	unsigned int	FixedPosition;		// ¹Ì¶¨µÄÎ»ÖÃ£¨Ïà¶Ô¸´Î»Î»ÖÃ£©£¨µ¥Î»:mm£©
-	bool			bAllColor;			// ÊÇ·ñËùÓĞÑÕÉ«
+	unsigned int 	Width;				// è‰²æ¡å®½ï¼ˆå•ä½:mmï¼‰
+	unsigned int	DistanceFromImg;	// ç¦»å›¾åƒçš„è·ç¦»ï¼ˆå•ä½:mmï¼‰
+	bool			Fixed;				// æ˜¯å¦å›ºå®šä½ç½®
+	unsigned int	FixedPosition;		// å›ºå®šçš„ä½ç½®ï¼ˆç›¸å¯¹å¤ä½ä½ç½®ï¼‰ï¼ˆå•ä½:mmï¼‰
+	bool			bAllColor;			// æ˜¯å¦æ‰€æœ‰é¢œè‰²
 }COLORBAR_INFO, *LPCOLORBAR_INFO;
 
-//WHITE CONTROL°×É«¿ØÖÆ²ÎÊı
+//WHITE CONTROLç™½è‰²æ§åˆ¶å‚æ•°
 typedef struct _WHITE_CONTROL
 {
-	bool			UseWhite;		//ÊÇ·ñÊ¹ÓÃ°×É«	
-	bool			SyncPrint;		//Í¬²½´òÓ¡±êÖ¾1: Í¬²½0:Òì²½
-	unsigned int	WhitePosition;	//°×É«´òÓ¡Î»ÖÃ0: bottom 1: Top  2:Middle
-	bool			bCWCMirror;     // ÊÇ·ñ²Ê°×²Ê
-	bool			bUseTwoFile;	// ÊÇ·ñÊ¹ÓÃÁ½¸öÎÄ¼ş(°×É«À´×ÔÓÚ¶ÀÁ¢ÎÄ¼ş,[A.prt(²ÊÉ«) + A.prt1(°×É«)]µÄĞÎÊ½) 
+	bool			UseWhite;		//æ˜¯å¦ä½¿ç”¨ç™½è‰²	
+	bool			SyncPrint;		//åŒæ­¥æ‰“å°æ ‡å¿—1: åŒæ­¥0:å¼‚æ­¥
+	unsigned int	WhitePosition;	//ç™½è‰²æ‰“å°ä½ç½®0: bottom 1: Top  2:Middle
+	bool			bCWCMirror;     // æ˜¯å¦å½©ç™½å½©
+	bool			bUseTwoFile;	// æ˜¯å¦ä½¿ç”¨ä¸¤ä¸ªæ–‡ä»¶(ç™½è‰²æ¥è‡ªäºç‹¬ç«‹æ–‡ä»¶,[A.prt(å½©è‰²) + A.prt1(ç™½è‰²)]çš„å½¢å¼) 
 }WHITE_CONTROL, *LPWHITE_CONTROL;
 
-//VARNISH CONTROL ÇåÆá¿ØÖÆ²ÎÊı
+//VARNISH CONTROL æ¸…æ¼†æ§åˆ¶å‚æ•°
 typedef struct _VARNISH_CONTROL
 {
-	bool UseVarnish;    // ÊÇ·ñÊ¹ÓÃÇåÆá	
-	bool SyncUV;		// Í¬²½UVÕÕÉä
-	bool SyncPrint;	    // Í¬²½ÇåÆá´òÓ¡
+	bool UseVarnish;    // æ˜¯å¦ä½¿ç”¨æ¸…æ¼†	
+	bool SyncUV;		// åŒæ­¥UVç…§å°„
+	bool SyncPrint;	    // åŒæ­¥æ¸…æ¼†æ‰“å°
 }VARNISH_CONTROL, *LPVARNISH_CONTROL;
 
-// ¶Âµã²¹³¥
+// å µç‚¹è¡¥å¿
 typedef struct _tagJammedDotPara
 {
-	short*	pHeadNozzleStatusBuf[MAX_COLORS];	//µ¥¸öÅçÍ·µÄÅçµã×´Ì¬ĞÅÏ¢buf£¬£¬±íÊ¾Ã»¶ÂÈû£¬±íÊ¾¶ÂÈû
-	short	iHeadPerSingleColor;				//´ËÑÕÉ«Êµ¼Ê×°ÁË¼¸¸öÅçÍ·
+	short*	pHeadNozzleStatusBuf[MAX_COLORS];	//å•ä¸ªå–·å¤´çš„å–·ç‚¹çŠ¶æ€ä¿¡æ¯bufï¼Œï¼Œè¡¨ç¤ºæ²¡å µå¡ï¼Œè¡¨ç¤ºå µå¡
+	short	iHeadPerSingleColor;				//æ­¤é¢œè‰²å®é™…è£…äº†å‡ ä¸ªå–·å¤´
 }SJammedDotPara;
 
 ///////////////////////////////////////////////////////////////////////////////////////
 typedef struct __SMART_PRINT_INFO
 {
-	long	StartOffset;     // ¿ªÊ¼Î»ÖÃ
-	long	EndOffset;		 // ½áÊøÎ»ÖÃ
-	bool	NeedJumpPrintY;  // ÊÇ·ñĞèÒªÌøPass
+	long	StartOffset;     // å¼€å§‹ä½ç½®
+	long	EndOffset;		 // ç»“æŸä½ç½®
+	bool	NeedJumpPrintY;  // æ˜¯å¦éœ€è¦è·³Pass
 }SMART_PRINT_INFO, *LPSMART_PRINT_INFO;
 
 typedef struct __CUR_PASS_INFO
 {
-	int					StepDistance;	//µ±Ç°Pass²½½øÁ¿,µ¥Î»Dot
-	int					Modify;			//µ±Ç°PassÕûÌåModify¡£ÓÃÓÚXÏò²åµã
+	int					StepDistance;	//å½“å‰Passæ­¥è¿›é‡,å•ä½Dot
+	int					Modify;			//å½“å‰Passæ•´ä½“Modifyã€‚ç”¨äºXå‘æ’ç‚¹
 	SMART_PRINT_INFO	SmartPrintInfo;
 }CUR_PASS_INFO, *LPCUR_PASS_INFO;
 
@@ -304,50 +304,50 @@ typedef struct __tagSIZE
 //HEAD_INFO:
 typedef struct __HEAD_INFO
 {
-	unsigned int		uiNozzle;					// Ã¿ÁĞÅçÍ·µÄÅç×ìÊı
-	unsigned int		uiUseNozzle;				// Êµ¼ÊÃ¿ÁĞÊ¹ÓÃµÄÅçµãÊı
-	unsigned int		uiHeadType;					// ÅçÍ·ÀàĞÍ
+	unsigned int		uiNozzle;					// æ¯åˆ—å–·å¤´çš„å–·å˜´æ•°
+	unsigned int		uiUseNozzle;				// å®é™…æ¯åˆ—ä½¿ç”¨çš„å–·ç‚¹æ•°
+	unsigned int		uiHeadType;					// å–·å¤´ç±»å‹
 
-	unsigned int		uiHeadDPI[MAX_DIRS];		// ÅçÍ·ÎïÀí·Ö±æÂÊ
-	unsigned int		uiHeadsPerColor;			// Ã¿¸öÅçÍ·µÄÅçÍ·ÁĞÊı
-	unsigned int		uiPixelPerByte;				// Ã¿×Ö½Ú±íÊ¾ÏñËØÊı£¨1bit:8, 2bit:4£©
+	unsigned int		uiHeadDPI[MAX_DIRS];		// å–·å¤´ç‰©ç†åˆ†è¾¨ç‡
+	unsigned int		uiHeadsPerColor;			// æ¯ä¸ªå–·å¤´çš„å–·å¤´åˆ—æ•°
+	unsigned int		uiPixelPerByte;				// æ¯å­—èŠ‚è¡¨ç¤ºåƒç´ æ•°ï¼ˆ1bit:8, 2bit:4ï¼‰
 
-	float			fGroupOverlap;				// YÏòÅçÍ·ÖØºÏµã£¨´¹Ö±ÅÅÁĞÓĞĞ§¡£ ¸ºÖµÎªÖØºÏ£¬ÕıÖµÎª·Ö¿ª£©
+	float			fGroupOverlap;				// Yå‘å–·å¤´é‡åˆç‚¹ï¼ˆå‚ç›´æ’åˆ—æœ‰æ•ˆã€‚ è´Ÿå€¼ä¸ºé‡åˆï¼Œæ­£å€¼ä¸ºåˆ†å¼€ï¼‰
 
-	//int         nNozzleStrip;					// ÅçÍ·Ğ±ÖÃÉáµã
-	//int         nHeadColStrip[4];				// Éáµã·½Ïò£¨-1:²»Éáµã£¬0£ºÏÂÉáµã£¬1£ºÉÏÉáµã£©
+	//int         nNozzleStrip;					// å–·å¤´æ–œç½®èˆç‚¹
+	//int         nHeadColStrip[4];				// èˆç‚¹æ–¹å‘ï¼ˆ-1:ä¸èˆç‚¹ï¼Œ0ï¼šä¸‹èˆç‚¹ï¼Œ1ï¼šä¸Šèˆç‚¹ï¼‰
 }HEAD_INFO, *LPHEAD_INFO;
 
 //MACH_INFO:
 typedef struct __MACH_INFO
 {
-	int					nMachineColorCount;		// »úÆ÷ÑÕÉ«Êı
-	MACH_COLORTYPE		eMachineColorType;      // »úÆ÷ÑÕÉ«ÀàĞÍ
-	int					nMachineGroupCount;		// ÅçÍ·×éÊıÁ¿
-	MACH_GROUPTYPE		eMachineGroupType;		// ÅçÍ·×éÅÅÁĞ·½Ê½
-	int					nMachineChannelCount;	// ºÏ¼ÆÍ¨µÀÊı£¨Heads * HeadsPerColor * Group)
+	int					nMachineColorCount;		// æœºå™¨é¢œè‰²æ•°
+	MACH_COLORTYPE		eMachineColorType;      // æœºå™¨é¢œè‰²ç±»å‹
+	int					nMachineGroupCount;		// å–·å¤´ç»„æ•°é‡
+	MACH_GROUPTYPE		eMachineGroupType;		// å–·å¤´ç»„æ’åˆ—æ–¹å¼
+	int					nMachineChannelCount;	// åˆè®¡é€šé“æ•°ï¼ˆHeads * HeadsPerColor * Group)
 
-	int					nEncodeDPI[MAX_DIRS];	// X/Y ¹âÕ¤ºÍ±àÂëÅÌµÄDPI
+	int					nEncodeDPI[MAX_DIRS];	// X/Y å…‰æ …å’Œç¼–ç ç›˜çš„DPI
 }MACH_INFO, *LPMACH_INFO;
 
 //CHANNEL_INFO
 typedef struct __CHANNEL_INFO
 {
-	int		iGroup;                         // ×éNo.
-	int 	iColor;							// Í¨µÀ¶ÔÓ¦µÄÑÕÉ«No.
-	int		iIndex;							// Í¨µÀ¶ÔÓ¦µÄÅçÍ·ÁĞĞòºÅ
-	bool	bUse;							// ÊÇ·ñÊ¹ÓÃ
+	int		iGroup;                         // ç»„No.
+	int 	iColor;							// é€šé“å¯¹åº”çš„é¢œè‰²No.
+	int		iIndex;							// é€šé“å¯¹åº”çš„å–·å¤´åˆ—åºå·
+	bool	bUse;							// æ˜¯å¦ä½¿ç”¨
 
-	int		XStandOffset[DIR_MAX];			// XÏò»ù×¼Æ«ÒÆ
-	int		XOffset[DIR_MAX];				// XÏòÆ«ÒÆ
-	int		XInchingOffset[DIR_MAX];		// XÏòÆ«ÒÆÎ¢µ÷
+	int		XStandOffset[DIR_MAX];			// Xå‘åŸºå‡†åç§»
+	int		XOffset[DIR_MAX];				// Xå‘åç§»
+	int		XInchingOffset[DIR_MAX];		// Xå‘åç§»å¾®è°ƒ
 
-	int		YStandOffset;					// »ù×¼Æ«ÒÆ£¨Ä¬ÈÏ0£©
-	int		YOffset;						// ÅçÍ·YÏòÆ«ÒÆ
+	int		YStandOffset;					// åŸºå‡†åç§»ï¼ˆé»˜è®¤0ï¼‰
+	int		YOffset;						// å–·å¤´Yå‘åç§»
 
 	//int		iReadJumpRow;					// 
-	int		nInkColors;						// Ä«Á¿(0~ 100)
-	int		bInvert;						// ÊÇ·ñ·´×ªÊı¾İ
+	int		nInkColors;						// å¢¨é‡(0~ 100)
+	int		bInvert;						// æ˜¯å¦åè½¬æ•°æ®
 }CHANNEL_INFO, *LPCHANNEL_INFO;
 
 
@@ -372,18 +372,18 @@ typedef struct __SPECIAL_PROCESS
 	bool    bSuperBlockAddInk;
 	bool    bSuperBlockDouble;
 
-	// ²£Á§»ú£¬É¨ÃèÊ½ÌÕ´É»úÓÃ£¨µ¥Pass£©
-	bool	UseLittleFeather; 	//(ÊÇ·ñÊ¹ÓÃĞ¡Óğ»¯)
-	unsigned int	FeatherSize; 		//(Óğ»¯´óĞ¡)
+	// ç»ç’ƒæœºï¼Œæ‰«æå¼é™¶ç“·æœºç”¨ï¼ˆå•Passï¼‰
+	bool	UseLittleFeather; 	//(æ˜¯å¦ä½¿ç”¨å°ç¾½åŒ–)
+	unsigned int	FeatherSize; 		//(ç¾½åŒ–å¤§å°)
 
-	// ¶Âµã²¹³¥²ÎÊı
+	// å µç‚¹è¡¥å¿å‚æ•°
 	bool	UseSameHeadCompansate[MAX_COLORS];
 	SJammedDotPara sJammedDotPara[MAX_COLORS];
 	int     JammedKCMYValue[4][MAX_COLORS];
 	float	OtherHeadCoefficient[MAX_COLORS][MAX_COLORS];
 
-	// Ôëµã
-	//int		NoisePercent[MAX_COLORS][MAX_NOIZE_UNIT];//m_iNoisePercent[][0]´ú±í×ª»¯ÎªºÍµÄ°Ù·Ö±È£¬m_iNoisePercent[][1]´ú±í×ª»¯ÎªºÍµÄ°Ù·Ö±È£¬m_iNoisePercent[][2]´ú±í×ª»¯ÎªºÍµÄ°Ù·Ö±È£¬
+	// å™ªç‚¹
+	//int		NoisePercent[MAX_COLORS][MAX_NOIZE_UNIT];//m_iNoisePercent[][0]ä»£è¡¨è½¬åŒ–ä¸ºå’Œçš„ç™¾åˆ†æ¯”ï¼Œm_iNoisePercent[][1]ä»£è¡¨è½¬åŒ–ä¸ºå’Œçš„ç™¾åˆ†æ¯”ï¼Œm_iNoisePercent[][2]ä»£è¡¨è½¬åŒ–ä¸ºå’Œçš„ç™¾åˆ†æ¯”ï¼Œ
 
 }SPECIAL_PROCESS, LPSPECIAL_PROCESS;
 
@@ -392,84 +392,84 @@ typedef struct __PROCESS_PARAM
 {
 	//////////////////////////////////////////////////////////////////////////
 	// OUT
-	int	DotPerModify;				// DotµÄÆ«ÒÆÖµ
-	int	StepOffsetPassMode;     	// ¼ÆËã´¦ÀíºóµÄPassÊı¶ÔÓ¦µÄPassMode
-	int	FeatherBlockPassMode;		// ¼ÆËã´¦ÀíºóµÄPassÊı
-	int	nNextGroupOffsetPass;		// Group¼äÆ«ÒÆPassÊı
-	int nNextGroupOffsetLine;		// Group¼äÆ«ÒÆĞĞÊı
-	unsigned int TotalPrintNum;				//´òÓ¡pass×ÜÊı
-	double	YDPIRatio;				// YÏòDPI±ÈÀıÏµÊı
-	SIZE_Q	PrintSize;				//´òÓ¡³ß´ç£¬µ¥Î»£ºDOT£¬±íÊ¾´òÓ¡»­ÃæµÄ×Ü¿í¶È/¸ß¶È£¨°üÀ¨Æ«ÒÆ²¹°×£©
+	int	DotPerModify;				// Dotçš„åç§»å€¼
+	int	StepOffsetPassMode;     	// è®¡ç®—å¤„ç†åçš„Passæ•°å¯¹åº”çš„PassMode
+	int	FeatherBlockPassMode;		// è®¡ç®—å¤„ç†åçš„Passæ•°
+	int	nNextGroupOffsetPass;		// Groupé—´åç§»Passæ•°
+	int nNextGroupOffsetLine;		// Groupé—´åç§»è¡Œæ•°
+	unsigned int TotalPrintNum;				//æ‰“å°passæ€»æ•°
+	double	YDPIRatio;				// Yå‘DPIæ¯”ä¾‹ç³»æ•°
+	SIZE_Q	PrintSize;				//æ‰“å°å°ºå¯¸ï¼Œå•ä½ï¼šDOTï¼Œè¡¨ç¤ºæ‰“å°ç”»é¢çš„æ€»å®½åº¦/é«˜åº¦ï¼ˆåŒ…æ‹¬åç§»è¡¥ç™½ï¼‰
 
 	//////////////////////////////////////////////////////////////////////////
 	// IN
-	PRT_IMG_TYPE    ImageType;					// Í¼ÏñÀàĞÍ
+	PRT_IMG_TYPE    ImageType;					// å›¾åƒç±»å‹
 	unsigned int	PassMode;			// 1Pass, 2Pass,  3Pass, 4Pass, 6Pass 8Pass, 12Pass, 16Pass
-	unsigned int	PrintMode;			//Normal, Multi, Regin(Õı³££¬¶à·ù£¬¾ÖÓò)
-	wchar_t*		FilePath;					//´òÓ¡ÎÄ¼şÂ·¾¶
-	REGIN_INFO		ReginInfo;					//ÇøÓò´òÓ¡¿ØÖÆ²ÎÊı
-	MUTI_INFO		MutiInfo;					//¶à·ù´òÓ¡¿ØÖÆ²ÎÊı
+	unsigned int	PrintMode;			//Normal, Multi, Regin(æ­£å¸¸ï¼Œå¤šå¹…ï¼Œå±€åŸŸ)
+	wchar_t*		FilePath;					//æ‰“å°æ–‡ä»¶è·¯å¾„
+	REGIN_INFO		ReginInfo;					//åŒºåŸŸæ‰“å°æ§åˆ¶å‚æ•°
+	MUTI_INFO		MutiInfo;					//å¤šå¹…æ‰“å°æ§åˆ¶å‚æ•°
 
-	COLORBAR_INFO	ColorBarInfo;				//É«Ìõ´òÓ¡²ÎÊı
-	WHITE_CONTROL	WhiteCtrl;					// °×É«´òÓ¡¿ØÖÆ²ÎÊı
-	VARNISH_CONTROL VarnishCtrl;				// ¹âÓÍ´òÓ¡¿ØÖÆ²ÎÊı
+	COLORBAR_INFO	ColorBarInfo;				//è‰²æ¡æ‰“å°å‚æ•°
+	WHITE_CONTROL	WhiteCtrl;					// ç™½è‰²æ‰“å°æ§åˆ¶å‚æ•°
+	VARNISH_CONTROL VarnishCtrl;				// å…‰æ²¹æ‰“å°æ§åˆ¶å‚æ•°
 
-	SPECIAL_PROCESS	SpecialProcess;	            // ÌØÊâ´¦Àí
+	SPECIAL_PROCESS	SpecialProcess;	            // ç‰¹æ®Šå¤„ç†
 
-	bool  			AddColorBar;					// ÊÇ·ñÌí¼ÓColorBar
-	bool			MirrorPrint;				// ÊÇ·ñ¾µÏñ
-	bool			YPrintDir;					// ÊÇ·ñ·´Ïò´òÓ¡
-	bool			DoubleStrike;				// ÊÇ·ñÆôÓÃË«Åç
-	bool			SingleDirPrint;				// ÊÇ·ñµ¥Ïò´òÓ¡
-	bool			PrintDir[MAX_DIRS];			// ´òÓ¡·½Ïò
-	bool			SmartPrint;					// ÊÇ·ñÌø°×´òÓ¡
-	//BOOL          bUseDoubleGroup;			// ÊÇ·ñÊ¹ÓÃË«×é
-	//BOOL			bGroupUse[MAX_GROUPS];	// ÅçÍ·×é¹¤×÷¿ª¹Ø
-	DOUBLE_FACE_PRINT_INFO DoubleFacePrintInfo; // Ë«ÃæÅç¿ØÖÆ²ÎÊı	(IN)RANDOM_INFO	RandomRegionInfo;		// Ëæ»úÇøÓò´òÓ¡
-	bool 		    bUseRegionPrint;		    // ÊÇ·ñÍ¬Ê±Ê¹ÓÃÇøÓò´òÓ¡
+	bool  			AddColorBar;					// æ˜¯å¦æ·»åŠ ColorBar
+	bool			MirrorPrint;				// æ˜¯å¦é•œåƒ
+	bool			YPrintDir;					// æ˜¯å¦åå‘æ‰“å°
+	bool			DoubleStrike;				// æ˜¯å¦å¯ç”¨åŒå–·
+	bool			SingleDirPrint;				// æ˜¯å¦å•å‘æ‰“å°
+	bool			PrintDir[MAX_DIRS];			// æ‰“å°æ–¹å‘
+	bool			SmartPrint;					// æ˜¯å¦è·³ç™½æ‰“å°
+	//BOOL          bUseDoubleGroup;			// æ˜¯å¦ä½¿ç”¨åŒç»„
+	//BOOL			bGroupUse[MAX_GROUPS];	// å–·å¤´ç»„å·¥ä½œå¼€å…³
+	DOUBLE_FACE_PRINT_INFO DoubleFacePrintInfo; // åŒé¢å–·æ§åˆ¶å‚æ•°	(IN)RANDOM_INFO	RandomRegionInfo;		// éšæœºåŒºåŸŸæ‰“å°
+	bool 		    bUseRegionPrint;		    // æ˜¯å¦åŒæ—¶ä½¿ç”¨åŒºåŸŸæ‰“å°
 
-	//BOOL			bUseMutiPrt;				// ÊÇ·ñ¶àÎÄ¼ş´òÓ¡
-	//LPCTSTR		ExtendFiles;				// ¶àÎÄ¼şÍ¬Ê±´òÓ¡Ê±µÄÎÄ¼şÃû
+	//BOOL			bUseMutiPrt;				// æ˜¯å¦å¤šæ–‡ä»¶æ‰“å°
+	//LPCTSTR		ExtendFiles;				// å¤šæ–‡ä»¶åŒæ—¶æ‰“å°æ—¶çš„æ–‡ä»¶å
 
 }PROCESS_PARAM, *LPPROCESS_PARAM;
 
 
-//PRINTER´òÓ¡»úÏµÍ³ÃèÊö½á¹¹
+//PRINTERæ‰“å°æœºç³»ç»Ÿæè¿°ç»“æ„
 typedef  struct  __PRINTER
 {
 	//Basic:
-	//UINT		MachineColor;                               // ÑÕÉ«ÀàĞÍ	
-	//UINT		MachineGroup;                               // ÅçÍ·×é
-	//UINT		MachineChanel;                              // Í¨µÀÊı
-	//UINT		MachineCombination;                         // ³µÍ·µ×°åÅçÍ·ÅÅÊı
-	//UINT		MachineHeadArrange;                         // ÅçÍ·ÅÅÁĞ(TRUEÎª×İÏòÅÅÁĞ£¬FALSEÎªºáÏòÅÅÁĞ)
+	//UINT		MachineColor;                               // é¢œè‰²ç±»å‹	
+	//UINT		MachineGroup;                               // å–·å¤´ç»„
+	//UINT		MachineChanel;                              // é€šé“æ•°
+	//UINT		MachineCombination;                         // è½¦å¤´åº•æ¿å–·å¤´æ’æ•°
+	//UINT		MachineHeadArrange;                         // å–·å¤´æ’åˆ—(TRUEä¸ºçºµå‘æ’åˆ—ï¼ŒFALSEä¸ºæ¨ªå‘æ’åˆ—)
 
-	//UINT		ColorCount;									// ÑÕÉ«Êı
-	//UINT		HeadsPerColor;								// ÅçÍ·
+	//UINT		ColorCount;									// é¢œè‰²æ•°
+	//UINT		HeadsPerColor;								// å–·å¤´
 
-	MACH_INFO	MachineInfo;								// »úÆ÷ÀàĞÍ¶¨Òå
-	HEAD_INFO	HeadInfo;									// ÅçÍ·ĞÅÏ¢
+	MACH_INFO	MachineInfo;								// æœºå™¨ç±»å‹å®šä¹‰
+	HEAD_INFO	HeadInfo;									// å–·å¤´ä¿¡æ¯
 
-	CHANNEL_INFO Chanel[MAX_CHANELS];						//Í¨µÀ£ºÎªÃ¿Ò»¸öÅçÍ·ÁĞ½¨Á¢Ò»¸öChanel¶ÔÏó
-	//int         YOverlapOffset[MAX_PASS_MODES];             // Ë«×éÅçÍ·Ì×É«²¹³¥
+	CHANNEL_INFO Chanel[MAX_CHANELS];						//é€šé“ï¼šä¸ºæ¯ä¸€ä¸ªå–·å¤´åˆ—å»ºç«‹ä¸€ä¸ªChanelå¯¹è±¡
+	//int         YOverlapOffset[MAX_PASS_MODES];             // åŒç»„å–·å¤´å¥—è‰²è¡¥å¿
 
 	//////////////////////////////////////////////////////////////////////////
-	// Ô¤ÀÀÍ¼Éú³ÉÓÃ
-	bool nUseCustomReview;						                    // ÊÇ·ñÊ¹ÓÃ×Ô¶¨ÒåÔ¤ÀÀ
-	int nReviewColorNumber;						                    // Ô¤ÀÀÍ¼ÑÕÉ«Êı
-	REVIEW_COLOR_STRUCT_INFO listReviewColorInfo[MAX_COLORS];       // Ô¤ÀÀÑÕÉ«¶¨Òå
+	// é¢„è§ˆå›¾ç”Ÿæˆç”¨
+	bool nUseCustomReview;						                    // æ˜¯å¦ä½¿ç”¨è‡ªå®šä¹‰é¢„è§ˆ
+	int nReviewColorNumber;						                    // é¢„è§ˆå›¾é¢œè‰²æ•°
+	REVIEW_COLOR_STRUCT_INFO listReviewColorInfo[MAX_COLORS];       // é¢„è§ˆé¢œè‰²å®šä¹‰
 	//////////////////////////////////////////////////////////////////////////
 
-	// ÅçÍ·Ïà¹Ø²ÎÊı
-	//		ÑÕÉ«Í¨µÀÓ³Éä)
-	int     nColorIndex[MAX_COLORS];			// ÑÕÉ«Í¨µÀÓ³Éä±í
-	int     nFileColorIndex[MAX_COLORS];		// ÎÄ¼şÑÕÉ«Í¨µÀÓ³Éä±í
-	int     nChannelColorIndex[MAX_COLORS];		// Í¨µÀÑÕÉ«Í¨µÀÓ³Éä±í
+	// å–·å¤´ç›¸å…³å‚æ•°
+	//		é¢œè‰²é€šé“æ˜ å°„)
+	int     nColorIndex[MAX_COLORS];			// é¢œè‰²é€šé“æ˜ å°„è¡¨
+	int     nFileColorIndex[MAX_COLORS];		// æ–‡ä»¶é¢œè‰²é€šé“æ˜ å°„è¡¨
+	int     nChannelColorIndex[MAX_COLORS];		// é€šé“é¢œè‰²é€šé“æ˜ å°„è¡¨
 
-	// µ÷Õû8ÁĞÅçµãË³Ğò
-	bool   bHeadPosLow[8];					// µ×°å¸ßµÍ´ÎĞò
-	int     bHeadOrder[8];					// ÅçÍ·Ë³ĞòÁÙÊ±µ÷ÕûÓÃ
-	double  fHeadOrder[8];					// ÅçÍ·Ë³ĞòÁÙÊ±µ÷ÕûÓÃ
+	// è°ƒæ•´8åˆ—å–·ç‚¹é¡ºåº
+	bool   bHeadPosLow[8];					// åº•æ¿é«˜ä½æ¬¡åº
+	int     bHeadOrder[8];					// å–·å¤´é¡ºåºä¸´æ—¶è°ƒæ•´ç”¨
+	double  fHeadOrder[8];					// å–·å¤´é¡ºåºä¸´æ—¶è°ƒæ•´ç”¨
 	/// -- End add
 
 }PRINTER, *LPPRINTER;

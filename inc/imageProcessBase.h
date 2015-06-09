@@ -1,29 +1,29 @@
-#ifndef IMAGEPROCESSBASE_H
+ï»¿#ifndef IMAGEPROCESSBASE_H
 #define IMAGEPROCESSBASE_H
 
 #include "sysdef.h"
 #include "imageprocess_global.h"
 
 /*! \typedef typedef ReturnCurPos
-*  \brief Pass´¦Àí½ø¶È·´À¡
+*  \brief Passå¤„ç†è¿›åº¦åé¦ˆ
 *
-* µ±Ç°Pass´¦Àí½ø¶È·´À¡
+* å½“å‰Passå¤„ç†è¿›åº¦åé¦ˆ
 */
 typedef void(__cdecl *ProcessPosCallback)(int nPos);
 
 
 /*! \typedef typedef ReturnCurPos
-*  \brief Pass´¦ÀíÉÏ´«Êı¾İ»Øµ÷
+*  \brief Passå¤„ç†ä¸Šä¼ æ•°æ®å›è°ƒ
 *
-* µ±Ç°PassÉÏ´«Êı¾İ»Øµ÷
+* å½“å‰Passä¸Šä¼ æ•°æ®å›è°ƒ
 */
 typedef void(__cdecl *DownloadImageDataToHardware)(unsigned char* lpWriteData, unsigned int uiBufferID, unsigned int uiBytes);
 
 
 /*! \typedef typedef ReturnCurPos
-*  \brief ´òÓ¡´¦Àí½Ó¿ÚÀà
+*  \brief æ‰“å°å¤„ç†æ¥å£ç±»
 *
-* ´òÓ¡Êı¾İ´¦Àí
+* æ‰“å°æ•°æ®å¤„ç†
 */
 class IMAGEPROCESS_EXPORT CImgProcessBase
 {
@@ -31,16 +31,16 @@ public:
 	//virtual ~CImgProcessBase() = 0;
 
 public:
-	// ´òÓ¡Ç°³õÊ¼»¯
+	// æ‰“å°å‰åˆå§‹åŒ–
 	virtual IMAGEPROCESS_EXCEPTION ProcessInit(PROCESS_PARAM* lpParam) = 0;
-	// ¸üĞÂ´òÓ¡»úÉèÖÃ(ÅçÍ·/Ì×É«µÈ´òÓ¡»úÅäÖÃ²ÎÊı)
+	// æ›´æ–°æ‰“å°æœºè®¾ç½®(å–·å¤´/å¥—è‰²ç­‰æ‰“å°æœºé…ç½®å‚æ•°)
 	virtual void UpdateSysInfo(PRINTER& sSysInfo, bool bCurTask, bool bInitSys) = 0;
-	// ´òÓ¡ÈÎÎñ½áÊøºóµÄÊÍ·Å¹¤×÷
+	// æ‰“å°ä»»åŠ¡ç»“æŸåçš„é‡Šæ”¾å·¥ä½œ
 	virtual IMAGEPROCESS_EXCEPTION CleanUp() = 0;
-	// Êı¾İ´¦Àí²¢ÉÏ´«
+	// æ•°æ®å¤„ç†å¹¶ä¸Šä¼ 
 	virtual IMAGEPROCESS_EXCEPTION ProcessImg(int nCount, bool bDir, LPCUR_PASS_INFO pCurPassInfo
 		, bool bWaitingProcessEnd = true, ProcessPosCallback callbackPos = NULL, DownloadImageDataToHardware downloadData = NULL) = 0;
-	// ´òÓ¡µÈ´ıµ±Ç°Pass´¦Àí²¢ÉÏ´«Íê±Ï£¨pSmartPrintInfo ·µ»ØµÄÌø°×ĞÅÏ¢£¬ÓÃÓÚÔË¶¯²¿·ÖÊµÏÖÌø°×¶¯×÷£©
+	// æ‰“å°ç­‰å¾…å½“å‰Passå¤„ç†å¹¶ä¸Šä¼ å®Œæ¯•ï¼ˆpSmartPrintInfo è¿”å›çš„è·³ç™½ä¿¡æ¯ï¼Œç”¨äºè¿åŠ¨éƒ¨åˆ†å®ç°è·³ç™½åŠ¨ä½œï¼‰
 	virtual IMAGEPROCESS_EXCEPTION WaitingForProcessOK(long dwMilliseconds = 10000, LPSMART_PRINT_INFO pSmartPrintInfo = NULL) = 0;
 };
 
