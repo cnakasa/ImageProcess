@@ -383,7 +383,8 @@ typedef struct __SPECIAL_PROCESS
 	float	OtherHeadCoefficient[MAX_COLORS][MAX_COLORS];
 
 	// 噪点
-	//int		NoisePercent[MAX_COLORS][MAX_NOIZE_UNIT];//m_iNoisePercent[][0]代表转化为和的百分比，m_iNoisePercent[][1]代表转化为和的百分比，m_iNoisePercent[][2]代表转化为和的百分比，
+	//int		NoisePercent[MAX_COLORS][MAX_NOIZE_UNIT];
+	//m_iNoisePercent[][0]代表转化为和的百分比，m_iNoisePercent[][1]代表转化为和的百分比，m_iNoisePercent[][2]代表转化为和的百分比，
 
 }SPECIAL_PROCESS, LPSPECIAL_PROCESS;
 
