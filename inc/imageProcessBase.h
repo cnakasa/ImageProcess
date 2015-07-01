@@ -1,6 +1,7 @@
 ﻿#ifndef IMAGEPROCESSBASE_H
 #define IMAGEPROCESSBASE_H
 
+//#include "windows.h"
 #include "sysdef.h"
 #include "imageprocess_global.h"
 
@@ -11,7 +12,6 @@
 */
 typedef void(__cdecl *ProcessPosCallback)(int nPos);
 
-
 /*! \typedef typedef ReturnCurPos
 *  \brief Pass处理上传数据回调
 *
@@ -20,13 +20,20 @@ typedef void(__cdecl *ProcessPosCallback)(int nPos);
 typedef void(__cdecl *DownloadImageDataToHardware)(unsigned char* lpWriteData, unsigned int uiBufferID, unsigned int uiBytes);
 
 
+//extern "C" void IMAGEPROCESS_EXPORT CreatePreview(char* lpPrtPath);
+
 /*! \typedef typedef ReturnCurPos
 *  \brief 打印处理接口类
 *
 * 打印数据处理
 */
-class IMAGEPROCESS_EXPORT CImgProcessBase
+class CImgProcessBase
 {
+public:
+	//static CImgProcessBase* CreareImageProcessObj();
+	//static void CDestoryImageProcessObj(CImgProcessBase* p);
+	//static void CreatePreview(char* lpPrtPath);
+
 public:
 	// 打印前初始化
 	virtual IMAGEPROCESS_EXCEPTION ProcessInit(PROCESS_PARAM* lpParam) = 0;
@@ -41,10 +48,11 @@ public:
 	virtual IMAGEPROCESS_EXCEPTION WaitingForProcessOK(unsigned int dwMilliseconds = 10000, LPSMART_PRINT_INFO pSmartPrintInfo = 0) = 0;
 };
 
-IMAGEPROCESS_EXPORT CImgProcessBase* CreareImageProcessObj();
-
-IMAGEPROCESS_EXPORT void CDestoryImageProcessObj(CImgProcessBase* p);
-
-IMAGEPROCESS_EXPORT	void CreatePreview(unsigned char* lpPrtPath);
+////
+extern "C" IMAGEPROCESS_EXPORT CImgProcessBase* CreareImageProcessObj();
+////
+extern "C" IMAGEPROCESS_EXPORT void CDestoryImageProcessObj(CImgProcessBase* p);
+///
+extern "C" IMAGEPROCESS_EXPORT void CreatePreview(char* lpPrtPath);
 
 #endif // IMAGEPROCESSBASE_H
