@@ -2,13 +2,14 @@
 
 #pragma once
 
-#pragma comment( lib, "../x64/Debug/ImageProcess.lib")
-#include "../Include/sysdef.h"
-#include "../Include/imageProcessBase.h"
+//#pragma comment( lib, "../../bin/x64/debug/ImageProcess.lib")
+#include "sysdef.h"
+#include "imageProcessBase.h"
 
 using namespace System;
 using namespace System::Collections::Generic;
 using namespace System::Text;
+using namespace System::Runtime::InteropServices;
 
 namespace ProcessInterface {
 
@@ -27,8 +28,8 @@ namespace ProcessInterface {
 		PE_HASP_EXPIRED				// 加密狗过期
 	};
 
-	public delegate void ProcessPosCallback(int nPos);
-	public delegate void DownloadImageDataToHardware(System::Byte lpWriteData, System::UInt32 uiBufferID, System::UInt32 uiBytes);
+	public delegate void cProcessPosCallback(int nPos);
+	public delegate void cDownloadImageDataToHardware(System::Byte lpWriteData, System::UInt32 uiBufferID, System::UInt32 uiBytes);
 
 	public ref class ImageProcess
 	{
@@ -39,8 +40,7 @@ namespace ProcessInterface {
 	public:
 
 		//////////////////////////////////////////////////////////////////////////
-
-		static int CreatePrtPreview(System::String^ sPrtPath);
+		static int CreatePrtPreview(System::String^ sPrtPath, cProcessPosCallback^ pPos);
 
 
 		////////////////////////////////////////////////////////////////////////////
@@ -62,8 +62,19 @@ namespace ProcessInterface {
 		//static void CreareProcessObj();
 		//static void CDestoryProcessObj();
 
+
+		//void SetCallback(ProcessPosCallback^ call)
+		//{
+		//	//SetCallback(_handle, call);
+		//}
+
+
+
 	private:
 		CImgProcessBase* pBase = 0;
+
+		// 指针
+		System::IntPtr^ _handle = System::IntPtr::Zero;
 	};
 
 }

@@ -53,6 +53,6 @@ extern "C" IMAGEPROCESS_EXPORT CImgProcessBase* CreareImageProcessObj();
 ////
 extern "C" IMAGEPROCESS_EXPORT void CDestoryImageProcessObj(CImgProcessBase* p);
 ///
-extern "C" IMAGEPROCESS_EXPORT int CreatePreview(char* lpPrtPath);
+extern "C" IMAGEPROCESS_EXPORT int CreatePreview(char* lpPrtPath, ProcessPosCallback pCallBack);
 
 #endif // IMAGEPROCESSBASE_H

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{1921178E-EFE9-47F8-AFEC-1907E4BF08D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "csSample\WindowsFormsApplication1.csproj", "{1921178E-EFE9-47F8-AFEC-1907E4BF08D4}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProcessInterface", "ProcessInterface\ProcessInterface.vcxproj", "{E76E9F68-FF56-41A6-9EE7-5B3C47F24453}"
 EndProject

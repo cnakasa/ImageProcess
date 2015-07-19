@@ -15,12 +15,11 @@ ProcessInterface::ImageProcess::~ImageProcess()
 	CDestoryImageProcessObj(pBase);
 }
 
-int ProcessInterface::ImageProcess::CreatePrtPreview(System::String^ sPrtPath)
+int ProcessInterface::ImageProcess::CreatePrtPreview(System::String^ sPrtPath, cProcessPosCallback^ pPos)
 {
 	// 将string转换成C++能识别的指针
 	pin_ptr<const wchar_t> pPrtPath = PtrToStringChars(sPrtPath);
-
-	return CreatePreview((char*)pPrtPath);
+	return CreatePreview((char*)pPrtPath, (ProcessPosCallback)((void *)Marshal::GetFunctionPointerForDelegate(pPos))); // 委托转为函数指针
 }
 
 //IMAGEPROCESS_EXCEPTION ProcessInterface::ImageProcess::ProcessInit([ref] IntPtr^ lpParam)
